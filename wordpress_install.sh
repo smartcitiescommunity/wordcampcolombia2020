@@ -52,6 +52,7 @@ wp core download --locale=es_ES
 wp core config --dbhost=localhost --dbname=wordcamp2020 --dbprefix=wc2020_ --dbuser=wordcamp2020 --dbpass="wordcamp2020"
 wp db create
 wp core install --url=http://localhost --title="WordCamp 2020" --admin_user=wordcamp2020 --admin_password="wordcamp2020" --admin_email=juan.villa@paisdelconocimiento.org 
+ wp search-replace 'http://localhost' 'http://misitio.com' --skip-columns=guid
 wp package install anhskohbo/wp-cli-themecheck
 wp plugin install jetpack --activate
 wp plugin install total-cache --activate
