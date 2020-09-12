@@ -80,4 +80,5 @@ wp theme status twentysixteen
 apache2ctl -t
 sudo a2ensite sitio.conf
 sudo systemctl reload apache2
-
+#sudo a2dissite 000-default.conf
+#sudo systemctl reload apache2
