@@ -23,9 +23,11 @@ sudo chown -R www-data:www-data /var/www/html/wordcamp2020
 sudo chmod -R 775 /var/www/html/wordcamp2020
 mysqladmin -u root -p create wordcamp2020
 mysqladmin -u root -p
+#mysql -e "CREATE USER 'wordcamp2020'@'localhost' IDENTIFIED BY 'wordcamp2020';";
 #CREATE USER 'wordcamp2020'@'localhost' IDENTIFIED BY 'wordcamp2020';
 #GRANT ALL PRIVILEGES ON * . * TO 'wordcamp2020'@'localhost';
 #FLUSH PRIVILEGES;
+#mysql -u userName -p -v -D databaseName -e "source path/my.sql"
 curl -O https://raw.githubusercontent.com/wp-cli/wp-cli/v2.3.0/utils/wp-completion.bash
 source ~/wp-completion.bash
 source ~/.bash_profile
@@ -67,5 +69,13 @@ wp theme install twentysixteen --activate
 wp theme update twentysixteen
 wp theme status twentysixteen
 #wp theme disable twentysixteen
+#  sudo nano /etc/apache2/sites-available/sitio.com.conf
+#<VirtualHost *:80>
+#	ServerName mysite.com
+#	ServerAdmin webmaster@localhost
+#	DocumentRoot /var/www/html/mysite.com
+#	ErrorLog ${APACHE_LOG_DIR}/error.log
+#	CustomLog ${APACHE_LOG_DIR}/access.log combined
+# </VirtualHost>
 
 
