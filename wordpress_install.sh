@@ -56,9 +56,11 @@ wp core install --url=http://localhost --title="WordCamp 2020" --admin_user=word
 wp package install anhskohbo/wp-cli-themecheck
 wp plugin install jetpack --activate
 wp plugin install total-cache --activate
+wp plugin install optimize
 #wp plugin deactivate total-cache
 wp theme install twentysixteen --activate
 wp theme update twentysixteen
 wp theme status twentysixteen
 #wp theme disable twentysixteen
+
 
