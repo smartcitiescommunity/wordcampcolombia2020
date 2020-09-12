@@ -17,15 +17,20 @@ sudo sysctl vm.swappiness=10
 wget -c http://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 ls -l
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-php wp-cli.phar --info
-chmod +x wp-cli.phar
-sudo mv wp-cli.phar /usr/local/bin/wp
 sudo cp -R wordpress /var/www/html/wordcamp2020
 ls -l /var/www/html/
 sudo chown -R www-data:www-data /var/www/html/wordcamp2020
 sudo chmod -R 775 /var/www/html/wordcamp2020
 mysqladmin -u root -p create wordcamp2020
+mysqladmin -u root -p
 #CREATE USER 'wordcamp2020'@'localhost' IDENTIFIED BY 'wordcamp2020';
 #GRANT ALL PRIVILEGES ON * . * TO 'wordcamp2020'@'localhost';
 #FLUSH PRIVILEGES;
+#wget https://github.com/wp-cli/builds/raw/gh-pages/deb/php-wpcli_latest_all.deb
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+php wp-cli.phar --info
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+wp --info
+sudo wp cli update
+wp plugin install bbpress --activate
