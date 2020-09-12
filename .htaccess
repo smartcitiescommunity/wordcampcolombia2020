@@ -50,8 +50,10 @@ ExpiresDefault "access 2 days"
 #define('WP_POST_REVISIONS', false);
 ########################################################################
 # Activa la compresión Gzip
-#Activar compresión Gzip
-SetOutputFilter DEFLATE
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/ plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+# Despues
 #http://midominio.com/wp-admin/options.php
 # cambiar el valor por 1
 ########################################################################
