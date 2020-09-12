@@ -57,6 +57,11 @@ wp package install anhskohbo/wp-cli-themecheck
 wp plugin install jetpack --activate
 wp plugin install total-cache --activate
 wp plugin install optimize
+wp plugin install autoptimize
+wp plugin install rocket-lazy-load
+wp plugin install wordpress-seo
+wp plugin install table-of-contents-plus
+wp plugin install wp-smushit
 #wp plugin deactivate total-cache
 wp theme install twentysixteen --activate
 wp theme update twentysixteen
