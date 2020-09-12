@@ -1,6 +1,7 @@
 #Crea una instancia en aws en un free tier
 #Selecciona el sistema operativo Ubuntu 20.04 lts
 #Crea un disco duro de proposito general de 26 Gigas como root "/" y otro de 4 Gigas para el Swap
+#https://help.ubuntu.com/community/SwapFaq
 sudo mkswap /dev/xvdb
 sudo swapon /dev/xvdb
 #/dev/xvdb swap swap defaults 0 0
