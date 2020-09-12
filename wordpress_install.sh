@@ -48,4 +48,4 @@ wp --info
 #source ~/.bashrc
 #wp_install nuevo
 sudo wp cli update
-wp plugin install bbpress --activate
+wp plugin install jetpack --activate
