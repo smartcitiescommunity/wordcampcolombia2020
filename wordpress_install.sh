@@ -26,11 +26,26 @@ mysqladmin -u root -p
 #CREATE USER 'wordcamp2020'@'localhost' IDENTIFIED BY 'wordcamp2020';
 #GRANT ALL PRIVILEGES ON * . * TO 'wordcamp2020'@'localhost';
 #FLUSH PRIVILEGES;
+curl -O https://raw.githubusercontent.com/wp-cli/wp-cli/v2.3.0/utils/wp-completion.bash
+source ~/wp-completion.bash
+source ~/.bash_profile
 #wget https://github.com/wp-cli/builds/raw/gh-pages/deb/php-wpcli_latest_all.deb
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 php wp-cli.phar --info
 chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 wp --info
+#wp_install () 
+#{ 
+#    wp core download --path=$1;
+#    cd $1;
+#    read -p 'nombre de la DB:' dbname;
+#    wp config create --dbname=$dbname --dbuser=wordcamp2020 --dbpass=wordcamp2020 --dbhost=localhost;
+#    wp db create;
+#    wp core install --prompt
+#}
+#
+#source ~/.bashrc
+#wp_install nuevo
 sudo wp cli update
 wp plugin install bbpress --activate
