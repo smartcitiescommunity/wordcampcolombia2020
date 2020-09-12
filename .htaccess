@@ -1,1 +1,14 @@
 #
+#BEGIN EVITAR HOTLINKING
+#Cambia esto segun sea conveniente
+RewriteEngine on
+# Options +FollowSymlinks
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?tuenemigo.com/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?feedburner.com/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?google.com/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?bing.com/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?trollsinc.com/.*$ [NC]
+RewriteRule \.(gif|jpg|jpeg|png|js|zip|css)$ - [F,NC,L]
+
+#END EVITAR HOTLINKING
