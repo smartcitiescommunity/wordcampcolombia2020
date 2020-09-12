@@ -1,5 +1,6 @@
-#
-#BEGIN EVITAR HOTLINKING
+########################################################################
+#Evitar HOTLINKING
+########################################################################
 #Cambia esto segun sea conveniente
 RewriteEngine on
 # Options +FollowSymlinks
@@ -10,5 +11,50 @@ RewriteCond %{HTTP_REFERER} !^http://(www\.)?google.com/.*$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www\.)?bing.com/.*$ [NC]
 RewriteCond %{HTTP_REFERER} !^http://(www\.)?trollsinc.com/.*$ [NC]
 RewriteRule \.(gif|jpg|jpeg|png|js|zip|css)$ - [F,NC,L]
-
-#END EVITAR HOTLINKING
+########################################################################
+#Mantener la conexión activa
+<IfModule mod_headers.c>
+Header set Connection keep-alive
+</IfModule>
+########################################################################
+#Activar la cache al navegador
+########################################################################
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 2 days"
+########################################################################
+#Trucos, borrar desde acá en si estas en un entorno de producción
+########################################################################
+# Optimiza la base de datos
+# en wp-config.php pon: define('WP_ALLOW_REPAIR', true);
+# luego ve a http://midominio.com/maint/repair.php 
+########################################################################
+# Usar Bibliotecas
+#Por ejemplo, si encuentras una línea de este tipo:
+#<script src="http://midominio.com/scripts/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+#Cámbiala para que se cargue el script desde Google:
+#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+########################################################################
+# Vacía la papelera a menudo
+#En wp-config.php pon: define( 'EMPTY_TRASH_DAYS', 7 );
+########################################################################
+# Desactiva las revisiones de entradas
+#define('WP_POST_REVISIONS', false);
+########################################################################
+# Activa la compresión Gzip
+#http://midominio.com/wp-admin/options.php
+# cambiar el valor por 1
+########################################################################
+# Activa la cache de WordPress
+# añadir la siguiente línea al archivo: wp-config.php: define( ‘ENABLE_CACHE’, true );
+########################################################################
+# Activa la cache de WordPress
+#
