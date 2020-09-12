@@ -71,11 +71,13 @@ wp theme status twentysixteen
 #wp theme disable twentysixteen
 #  sudo nano /etc/apache2/sites-available/sitio.com.conf
 #<VirtualHost *:80>
-#	ServerName mysite.com
+#	ServerName sitio.com
 #	ServerAdmin webmaster@localhost
-#	DocumentRoot /var/www/html/mysite.com
+#	DocumentRoot /var/www/html/sitio.com
 #	ErrorLog ${APACHE_LOG_DIR}/error.log
 #	CustomLog ${APACHE_LOG_DIR}/access.log combined
 # </VirtualHost>
-
+apache2ctl -t
+sudo a2ensite sitio.conf
+sudo systemctl reload apache2
 
