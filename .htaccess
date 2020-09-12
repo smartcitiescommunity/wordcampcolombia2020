@@ -50,11 +50,27 @@ ExpiresDefault "access 2 days"
 #define('WP_POST_REVISIONS', false);
 ########################################################################
 # Activa la compresión Gzip
+#Activar compresión Gzip
+SetOutputFilter DEFLATE
 #http://midominio.com/wp-admin/options.php
 # cambiar el valor por 1
 ########################################################################
 # Activa la cache de WordPress
 # añadir la siguiente línea al archivo: wp-config.php: define( ‘ENABLE_CACHE’, true );
 ########################################################################
-# Activa la cache de WordPress
-#
+# Mod Pages Speed
+# https://www.modpagespeed.com/doc/configuration
+# wget https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb
+# sudo dpkg -i mod-pagespeed-*.deb
+# sudo apt-get -f install
+########################################################################
+# Activa la compresión CSS
+#http://css.github.io/csso/csso.html
+########################################################################
+# Habilitar compresión para WordPress
+<IfModule mod_deflate.c> AddOutputFilterByType DEFLATE text/plain AddOutputFilterByType DEFLATE text/html AddOutputFilterByType DEFLATE text/xml AddOutputFilterByType DEFLATE text/css AddOutputFilterByType DEFLATE text/javascript AddOutputFilterByType DEFLATE application/xml AddOutputFilterByType DEFLATE application/xhtml+xml AddOutputFilterByType DEFLATE application/rss+xml AddOutputFilterByType DEFLATE application/atom_xml AddOutputFilterByType DEFLATE application/javascript AddOutputFilterByType DEFLATE application/x-javascript AddOutputFilterByType DEFLATE application/x-shockwave-flash AddOutputFilterByType DEFLATE image/svg+xml .svg .svgz </IfModule>
+########################################################################
+# Habilitar más memoria para WordPress
+#añadir la siguiente línea al archivo: wp-config.php: define('WP_MEMORY_LIMIT', '256M');
+########################################################################
+
